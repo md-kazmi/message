@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be My Valentine ❤️</title>
+<title>I’m Sorry ❤️</title>
 
 <style>
 * {
@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
     overflow: hidden;
@@ -26,7 +26,7 @@ body {
 #musicOverlay {
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ body {
     border: none;
     border-radius: 30px;
     background: white;
-    color: #e63946;
+    color: #764ba2;
     cursor: pointer;
 }
 
@@ -49,24 +49,29 @@ body {
     width: 90%;
     max-width: 380px;
     background: white;
-    padding: 30px 20px;
+    padding: 30px 22px;
     border-radius: 22px;
     box-shadow: 0 14px 35px rgba(0,0,0,0.25);
-    position: relative;
 }
 
 .heart {
-    font-size: 50px;
-    animation: pulse 1.5s infinite;
+    font-size: 46px;
+    animation: pulse 2s infinite;
 }
 
 .name {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
+    margin: 12px 0;
+    color: #764ba2;
+    text-shadow: 0 0 10px #cdb4db;
+    animation: glow 2.5s infinite alternate;
+}
+
+h1 {
+    color: #333;
     margin: 10px 0;
-    color: #e63946;
-    text-shadow: 0 0 10px #ff7eb3, 0 0 20px #ff7eb3;
-    animation: glow 2s infinite alternate;
+    font-size: 22px;
 }
 
 p {
@@ -75,50 +80,27 @@ p {
     line-height: 1.6;
 }
 
-.question {
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.buttons {
-    margin-top: 25px;
-    position: relative;
-    height: 80px;
-}
-
 button {
-    padding: 14px 28px;
+    margin-top: 20px;
+    padding: 14px 30px;
     font-size: 16px;
     border-radius: 30px;
     border: none;
+    background: #764ba2;
+    color: white;
     cursor: pointer;
-    transition: 0.3s;
-    position: absolute;
-}
-
-#yesBtn {
-    background: #e63946;
-    color: white;
-    left: 0;
-}
-
-#noBtn {
-    background: #adb5bd;
-    color: white;
-    right: 0;
 }
 
 /* ✨ Animations */
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.15); }
     100% { transform: scale(1); }
 }
 
 @keyframes glow {
-    from { text-shadow: 0 0 5px #ff7eb3; }
-    to { text-shadow: 0 0 20px #ff758c; }
+    from { text-shadow: 0 0 5px #cdb4db; }
+    to { text-shadow: 0 0 20px #764ba2; }
 }
 </style>
 </head>
@@ -128,9 +110,9 @@ button {
 <!-- 🎶 Music Start Screen -->
 <div id="musicOverlay">
     <div>
-        <h1>❤️ One Tap for Love ❤️</h1>
-        <p>Tap to start the music 🎶</p>
-        <button onclick="startMusic()">Start 💕</button>
+        <h1>🎧 One Tap</h1>
+        <p>Tap to hear my apology 🎶</p>
+        <button onclick="startMusic()">Start</button>
     </div>
 </div>
 
@@ -139,75 +121,60 @@ button {
     <source src="love.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 💌 Valentine Card -->
+<!-- 💔 Apology Card -->
 <div class="card">
-    <div class="heart">❤️</div>
+    <div class="heart">💔</div>
 
     <!-- ✨ CHANGE HER NAME HERE -->
-    <div class="name">Shiza 💖</div>
+    <div class="name">Shiza</div>
+
+    <h1>I’m really sorry…</h1>
 
     <p>
-        From the moment you came into my life,
-        everything feels warmer and brighter 💕
+        I know I hurt you, and I won’t make excuses for it.<br><br>
+        You mean more to me than my ego, my mistakes,
+        or my silence ever could.
     </p>
 
-    <p class="question">
-        Will you be my Valentine? 🌹
+    <p>
+        I miss your smile, your voice, and the way
+        everything feels right when you’re around.
     </p>
 
-    <div class="buttons">
-        <button id="yesBtn" onclick="sayYes()">Yes 😍</button>
-        <button id="noBtn" onclick="moveNo()">No 🙈</button>
-    </div>
+    <p>
+        If there’s even a small place left in your heart,
+        I promise to do better… for you.
+    </p>
+
+    <button onclick="showMessage()">Please forgive me 💜</button>
 </div>
 
 <script>
-let noCount = 0;
-
 function startMusic() {
     document.getElementById("bgMusic").play();
     document.getElementById("musicOverlay").style.display = "none";
 }
 
-function sayYes() {
+function showMessage() {
     document.body.innerHTML = `
         <div style="
             display:flex;
             justify-content:center;
             align-items:center;
             height:100vh;
-            background:linear-gradient(135deg,#ff758c,#ff7eb3);
+            background:linear-gradient(135deg,#667eea,#764ba2);
             font-family:'Segoe UI',sans-serif;
             text-align:center;">
-            <div style="color:white;padding:20px;">
-                <h1 style="font-size:32px;">Yayyy! ❤️🥰</h1>
+            <div style="color:white;padding:25px;">
+                <h1>Thank you for reading ❤️</h1>
                 <p style="font-size:18px;">
-                    I knew you’d say YES 💖<br><br>
-                    Happy Valentine’s Day, my love 🌹
+                    No pressure. No expectations.<br><br>
+                    I just wanted you to know<br>
+                    how deeply sorry I am.
                 </p>
             </div>
         </div>
     `;
-}
-
-function moveNo() {
-    const noBtn = document.getElementById("noBtn");
-    noCount++;
-
-    const x = Math.random() * 230;
-    const y = Math.random() * 40;
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-
-    if (noCount === 2) noBtn.innerText = "Are you sure? 😳";
-    else if (noCount === 4) noBtn.innerText = "Think again 🙈";
-    else if (noCount === 6) noBtn.innerText = "Okay okay 😅";
-    else if (noCount >= 7) {
-        noBtn.innerText = "Yes 😍";
-        noBtn.style.background = "#e63946";
-        noBtn.onclick = sayYes;
-    }
 }
 </script>
 
